@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Farmer Product Listing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .nav-links a {
+      color: white;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap; /* Added this line to fix the bug */
+    }
+    .form-section, .info-section {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Farmer Product Listing</h1>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="form-section">
+      <!-- Form content goes here -->
+    </div>
+    <div class="info-section">
+      <!-- Information content goes here -->
+    </div>
+  </div>
+</body>
+
+    .form-section h2 {
+      margin-top: 0;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="date"],
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group input[type="file"] {
+      padding: 0.3rem;
+    }
+    .actions {
+      display: flex;
+      gap: 1rem;
+    }
+    .actions button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background-color:rgb(70, 171, 73);
+      color: white;
+    }
+    .btn-secondary {
+      background-color: #ccc;
+      color: #333;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <strong>Agrichain</strong>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Dashboard</a>
+      <a href="#">My Listings</a>
+      <a href="#" style="text-decoration: underline;">New Listing</a>
+      <a href="#">Orders</a>
+      <a href="#">Profile</a>
+    </nav>
+    <div class="wallet-status">
+      <span>Wallet: Connected</span>
+    </div>
+  </header>
+
+  <div class="container">
+   
+    <div class="form-section">
+      <h2>List a New Product</h2>
+      <p>Record your crop sale on the blockchain for secure, transparent transactions.</p>
+      
+      <form id="listingForm">
+      <p> Crop Image Upload</p>  
+        <div class="form-group">
+          <label for="cropImage">Crop Image</label>
+          <input type="file" id="cropImage" accept="image/*" />
+        </div>
+        <p>Crop Name</p>
+        <div class="form-group">
+          <label for="cropName">Crop Name</label>
+          <input type="text" id="cropName" placeholder="e.g., Wheat" required />
+        </div>
+        <p>Variety</p>
+        <div class="form-group">
+          <label for="cropVariety">Variety/Type (Optional)</label>
+          <input type="text" id="cropVariety" placeholder="e.g., Durum Wheat" />
+        </div>
+        <p>Quantity</p>
+        <div class="form-group">
+          <label for="quantity">Quantity (kg)</label>
+          <input type="number" id="quantity" placeholder="e.g., 1000" required />
+        </div>
+        <p> Unit Price</p>
+        <div class="form-group">
+          <label for="unitPrice">Unit Price (rupees per kg)</label>
+          <input type="number" id="unitPrice" placeholder="e.g., 2.50" step="0.01" required />
+          <small>Market suggestion: $<span id="marketPrice">2.45</span>/kg</small>
+        </div>
+        <p>Quality Information</p>
+        <div class="form-group">
+          <label for="cropQuality">Crop Quality</label>
+          <input type="text" id="cropQuality" placeholder="AI Verified Grade (if available)" readonly />
+        </div>
+        <p> Location</p>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" placeholder="e.g., Springfield Farm, Region XYZ" required />
+        </div>
+        <p>Smart Contract Options</p>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="instantPayment" />
+            Enable Smart Contract Instant Payment
+          </label>
+        </div>
+        <p>Action Buttons</p>
+        <div class="actions">
+          <button type="button" class="btn-secondary" onclick="resetForm()">Cancel</button>
+          <button type="submit" class="btn-primary">List My Product</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="info-section">
+      <h3>Why List on Agrichain?</h3>
+      <ul>
+        <li><strong>Immutable Records:</strong> Every sale is recorded on the blockchain.</li>
+        <li><strong>Instant Payments:</strong> Smart contracts trigger automatic payment.</li>
+        <li><strong>No Middlemen:</strong> Direct farmer-to-buyer transactions ensure better prices.</li>
+        <li><strong>Verified Data:</strong> AI and blockchain secure your crop grading.</li>
+      </ul>
+      <p><em>Tip:</em> Ensure your crop image is clear and your details are accurate to attract the best buyers.</p>
+    </div>
+  </div>
+
+  <script>
+    // Example JavaScript to handle form submission
+    document.getElementById('listingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Here, you would normally trigger blockchain integration, smart contract deployment, and form validations.
+      alert('Product listing submitted! Your product will be recorded on the blockchain.');
+      // Optionally, reset the form after submission:
+      e.target.reset();
+      
+    });
+
+    function resetForm() {
+      document.getElementById('listingForm').reset()
+    }
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Order Placement</title>
+  <style>
+    /* Basic Reset & Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+    /* Header / Navigation Bar */
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .nav-links a {
+      color: white;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+    /* Container Styling */
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    /* Form Section */
+    .form-section h2 {
+      margin-top: 0;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="date"],
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group input[type="file"] {
+      padding: 0.3rem;
+    }
+    .actions {
+      display: flex;
+      gap: 1rem;
+    }
+    .actions button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  </style>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Delivery Tracking</title>
+  <style>
+    /* Basic Reset & Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    /* Header / Navigation Bar */
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .nav-links a {
+      color: white;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 2rem;
+    }
+    /* Left Panel (Order List) */
+    .order-list {
+      flex: 1;
+      border-right: 1px solid #ccc;
+      padding-right: 1rem;
+    }
+    .order-list h3 {
+      margin-top: 0;
+    }
+    .order-item {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .order-item:hover {
+      background-color: #f1f1f1;
+    }
+    .order-item.active {
+      background-color: #e0ffe0;
+      border-color: #4CAF50;
+    }
+    .order-item p {
+      margin: 0.5rem 0;
+    }
+    /* Right Panel (Tracking Timeline) */
+    .tracking-details {
+      flex: 2;
+      padding-left: 1rem;
+    }
+    .tracking-details h3 {
+      margin-top: 0;
+    }
+    .timeline {
+      position: relative;
+      margin: 1rem 0;
+      padding-left: 20px;
+      border-left: 2px solid #4CAF50;
+    }
+    .timeline-event {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+    }
+    .timeline-event::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+    }
+    .timeline-event .time {
+      font-size: 0.85rem;
+      color: #555;
+    }
+    .timeline-event .event-title {
+      font-weight: bold;
+      margin: 0.25rem 0;
+    }
+    .timeline-event .description {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .order-list {
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 1rem;
+      }
+      .tracking-details {
+        padding-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation Bar -->
+  <header>
+    <div class="logo">
+      <strong>Agrichain</strong>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Dashboard</a>
+      <a href="#">My Orders</a>
+      <a href="#">New Order</a>
+      <a href="#">Tracking</a>
+      <a href="#">Profile</a>
+    </nav>
+    <div class="wallet-status">
+      <span>Wallet: Connected</span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Left Panel: Order List -->
+    <div class="order-list">
+      <h3>Your Orders</h3>
+      <!-- Sample order items. In a real app, these would be dynamically generated -->
+      <div class="order-item" data-order-id="order001" onclick="showTrackingDetails('order001')">
+        <p><strong>Order ID:</strong> order001</p>
+        <p><strong>Product:</strong> Wheat - Farm A</p>
+        <p><strong>Status:</strong> In Transit</p>
+      </div>
+      <div class="order-item" data-order-id="order002" onclick="showTrackingDetails('order002')">
+        <p><strong>Order ID:</strong> order002</p>
+        <p><strong>Product:</strong> Corn - Farm B</p>
+        <p><strong>Status:</strong> Out for Delivery</p>
+      </div>
+      <div class="order-item" data-order-id="order003" onclick="showTrackingDetails('order003')">
+        <p><strong>Order ID:</strong> order003</p>
+        <p><strong>Product:</strong> Rice - Farm C</p>
+        <p><strong>Status:</strong> Delivered</p>
+      </div>
+    </div>
+
+    <!-- Right Panel: Tracking Timeline -->
+    <div class="tracking-details">
+      <h3>Tracking Details</h3>
+      <p>Select an order from the left to view its delivery status timeline.</p>
+      <div id="timelineContainer" class="timeline">
+        <!-- Timeline events will be injected here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample tracking data for demonstration
+    const trackingData = {
+      order001: [
+        { time: "2025-01-20 09:00", title: "Order Placed", description: "Your order has been successfully placed." },
+        { time: "2025-01-21 12:30", title: "Order Shipped", description: "Your order left the farm." },
+        { time: "2025-01-22 15:45", title: "In Transit", description: "Your order is on its way." }
+      ],
+      order002: [
+        { time: "2025-01-18 10:15", title: "Order Placed", description: "Your order has been successfully placed." },
+        { time: "2025-01-19 11:00", title: "Order Shipped", description: "Your order left the farm." },
+        { time: "2025-01-20 14:00", title: "In Transit", description: "Your order is on its way." },
+        { time: "2025-01-21 08:30", title: "Out for Delivery", description: "Your order is out for delivery." }
+      ],
+      order003: [
+        { time: "2025-01-15 08:00", title: "Order Placed", description: "Your order has been successfully placed." },
+        { time: "2025-01-15 09:30", title: "Order Shipped", description: "Your order left the farm." },
+        { time: "2025-01-16 13:00", title: "In Transit", description: "Your order is on its way." },
+        { time: "2025-01-17 11:00", title: "Delivered", description: "Your order has been delivered." }
+      ]
+    };
+
+    // Function to display timeline events for a given order
+    function showTrackingDetails(orderId) {
+      // Remove active class from all order items
+      const orderItems = document.querySelectorAll('.order-item');
+      orderItems.forEach(item => item.classList.remove('active'));
+
+      // Add active class to selected order item
+      const selectedItem = document.querySelector(`.order-item[data-order-id="${orderId}"]`);
+      if (selectedItem) {
+        selectedItem.classList.add('active');
+      }
+
+      // Get tracking events for the selected order
+      const events = trackingData[orderId] || [];
+      const timelineContainer = document.getElementById('timelineContainer');
+      
+      // Clear any existing events
+      timelineContainer.innerHTML = '';
+      
+      // Check if there are events
+      if (events.length === 0) {
+        timelineContainer.innerHTML = '<p>No tracking details available.</p>';
+        return;
+      }
+      
+      // Create timeline events
+      events.forEach(event => {
+        const eventDiv = document.createElement('div');
+        eventDiv.className = 'timeline-event';
+        eventDiv.innerHTML = `
+          <div class="time">${event.time}</div>
+          <div class="event-title">${event.title}</div>
+          <p class="description">${event.description}</p>
+        `;
+        timelineContainer.appendChild(eventDiv);
+      });
+    }
+  </script>
+</body>
+</html>
+
