@@ -1,0 +1,153 @@
+{
+  "productListings": [
+    {
+      "id": "prod001",
+      "cropName": "Wheat",
+      "variety": "Durum Wheat",
+      "quantity": 1000,
+      "unitPrice": 2.50,
+      "location": "Farm A, Springfield",
+      "imageUrl": "https://example.com/images/wheat.jpg",
+      "qualityGrade": "A",
+      "description": "High-quality durum wheat perfect for pasta production."
+    },
+    {
+      "id": "prod002",
+      "cropName": "Corn",
+      "variety": "Sweet Corn",
+      "quantity": 800,
+      "unitPrice": 3.00,
+      "location": "Farm B, Riverdale",
+      "imageUrl": "https://example.com/images/corn.jpg",
+      "qualityGrade": "B",
+      "description": "Fresh sweet corn, ideal for salads and grilling."
+    },
+    {
+      "id": "prod003",
+      "cropName": "Rice",
+      "variety": "Basmati",
+      "quantity": 1200,
+      "unitPrice": 1.80,
+      "location": "Farm C, Green Valley",
+      "imageUrl": "https://example.com/images/rice.jpg",
+      "qualityGrade": "A",
+      "description": "Aromatic basmati rice with excellent texture."
+    }
+  ],
+  "orders": [
+    {
+      "orderId": "order001",
+      "productId": "prod001",
+      "buyer": {
+        "id": "buyer001",
+        "name": "John Doe"
+      },
+      "orderQuantity": 500,
+      "orderDate": "2025-01-20",
+      "totalPrice": 1250.00,
+      "deliveryAddress": "123 Main Street, Springfield",
+      "status": "In Transit",
+      "smartContractId": "sc001"
+    },
+    {
+      "orderId": "order002",
+      "productId": "prod002",
+      "buyer": {
+        "id": "buyer002",
+        "name": "Alice Smith"
+      },
+      "orderQuantity": 300,
+      "orderDate": "2025-01-18",
+      "totalPrice": 900.00,
+      "deliveryAddress": "456 Elm Street, Riverdale",
+      "status": "Out for Delivery",
+      "smartContractId": "sc002"
+    },
+    {
+      "orderId": "order003",
+      "productId": "prod003",
+      "buyer": {
+        "id": "buyer003",
+        "name": "Bob Johnson"
+      },
+      "orderQuantity": 700,
+      "orderDate": "2025-01-15",
+      "totalPrice": 1260.00,
+      "deliveryAddress": "789 Oak Avenue, Green Valley",
+      "status": "Delivered",
+      "smartContractId": "sc003"
+    }
+  ],
+  "deliveryStatus": [
+    {
+      "orderId": "order001",
+      "timeline": [
+        {
+          "time": "2025-01-20T09:00:00",
+          "title": "Order Placed",
+          "description": "Your order has been successfully placed."
+        },
+        {
+          "time": "2025-01-21T12:30:00",
+          "title": "Order Shipped",
+          "description": "Your order left the farm."
+        },
+        {
+          "time": "2025-01-22T15:45:00",
+          "title": "In Transit",
+          "description": "Your order is on its way."
+        }
+      ]
+    },
+    {
+      "orderId": "order002",
+      "timeline": [
+        {
+          "time": "2025-01-18T10:15:00",
+          "title": "Order Placed",
+          "description": "Your order has been successfully placed."
+        },
+        {
+          "time": "2025-01-19T11:00:00",
+          "title": "Order Shipped",
+          "description": "Your order left the farm."
+        },
+        {
+          "time": "2025-01-20T14:00:00",
+          "title": "In Transit",
+          "description": "Your order is on its way."
+        },
+        {
+          "time": "2025-01-21T08:30:00",
+          "title": "Out for Delivery",
+          "description": "Your order is out for delivery."
+        }
+      ]
+    },
+    {
+      "orderId": "order003",
+      "timeline": [
+        {
+          "time": "2025-01-15T08:00:00",
+          "title": "Order Placed",
+          "description": "Your order has been successfully placed."
+        },
+        {
+          "time": "2025-01-15T09:30:00",
+          "title": "Order Shipped",
+          "description": "Your order left the farm."
+        },
+        {
+          "time": "2025-01-16T13:00:00",
+          "title": "In Transit",
+          "description": "Your order is on its way."
+        },
+        {
+          "time": "2025-01-17T11:00:00",
+          "title": "Delivered",
+          "description": "Your order has been delivered."
+        }
+      ]
+    }
+  ]
+}
