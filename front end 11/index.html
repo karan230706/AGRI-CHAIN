@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri Chain</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Agri Chain</h1>
+        <nav>
+            <ul>
+                <li><a href="#farmers">Farmers</a></li>
+                <li><a href="#users">Users</a></li>
+                <li><a href="#orders">Orders</a></li>
+                <li><a href="#delivery-personnel">Delivery Personnel</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="farmers">
+            <h2>Farmers</h2>
+            <h3>New Farmer </h3><a href ="www.adaa.com">signup</a>
+            <form id="addFarmerForm">
+                <input type="text" id="farmerName" placeholder="Name" required>
+                <input type="text" id="farmerContact" placeholder="Contact" required>
+                <input type="text" id="farmerLocation" placeholder="Location" required>
+                <input type="number" id="farmerRating" placeholder="Rating" min="1" max="5">
+                <input type="text" id="farmerCrops" placeholder="Crops (comma separated)" required>
+                <button type="submit">Add Farmer</button>
+            </form>
+            <div id="newFarmerId"></div> <!-- Section to display new farmer ID -->
+            <div id="farmersList"></div> <!-- Section to display list of farmers -->
+        </section>
+        <section id="users">
+            <h2>Users</h2>
+            <form id="addUserForm">
+                <input type="text" id="userName" placeholder="Name" required>
+                <input type="email" id="userEmail" placeholder="Email" required>
+                <input type="text" id="userLocation" placeholder="Location" required>
+                <button type="submit">Add User</button>
+            </form>
+            <div id="newUserId"></div> <!-- Section to display new user ID -->
+        </section>
+        <section id="orders">
+            <h2>Orders</h2>
+            <form id="addOrderForm">
+                <input type="text" id="orderUserId" placeholder="User ID" required>
+                <input type="text" id="orderFarmerId" placeholder="Farmer ID" required>
+                <input type="text" id="orderCrop" placeholder="Crop" required>
+                <input type="number" id="orderQuantity" placeholder="Quantity" required>
+                <button type="submit">Place Order</button>
+            </form>
+        </section>
+        <section id="delivery-personnel">
+            <h2>Delivery Personnel</h2>
+            <form id="addDeliveryPersonnelForm">
+                <input type="text" id="deliveryPersonnelName" placeholder="Name" required>
+                <input type="text" id="deliveryPersonnelContact" placeholder="Contact" required>
+                <button type="submit">Add Delivery Personnel</button>
+            </form>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
